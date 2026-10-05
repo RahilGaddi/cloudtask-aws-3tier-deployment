@@ -1,0 +1,31 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CloudWatchLogsExport",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateExportTask",
+        "logs:DescribeExportTasks",
+        "logs:DescribeLogGroups"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "S3BucketAccess",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetBucketAcl"
+      ],
+      "Resource": "arn:aws:s3:::cloudtaskmyproject"
+    },
+    {
+      "Sid": "S3ObjectAccess",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::cloudtaskmyproject/*"
+    }
+  ]
+}
