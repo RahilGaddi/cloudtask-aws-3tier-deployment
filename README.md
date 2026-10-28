@@ -1,4 +1,4 @@
-﻿# CloudTask â€” AWS 3-Tier Cloud Infrastructure
+﻿# CloudTask  AWS 3-Tier Cloud Infrastructure
 
 
 
@@ -20,55 +20,55 @@ The primary focus of this project is the \*\*cloud infrastructure and architectu
 
 ```text
 
-&#x20;                             Internet
+                            Internet
 
-&#x20;                                 |
+                                |
 
-&#x20;                                 v
+                                v
 
-&#x20;                          Amazon Route 53
+                         Amazon Route 53
 
-&#x20;                                 |
+                               |
 
-&#x20;                                 v
+                               v
 
-&#x20;                           CloudFront
+                          CloudFront
 
-&#x20;                                 |
+                                |
 
-&#x20;                                 v
+                                v
 
-&#x20;                    Internet-facing ALB
+                      Internet-facing ALB
 
-&#x20;                                 |
+                                |
 
-&#x20;                                 v
+                                v
 
-&#x20;                        Frontend EC2
+                          Frontend EC2
 
-&#x20;                           + Nginx
+                            + Nginx
 
-&#x20;                                 |
+                                 |
 
-&#x20;                                 v
+                                 v
 
-&#x20;                        Internal ALB
+                           Internal ALB
 
-&#x20;                                 |
+                                 |
 
-&#x20;                                 v
+                                 v
 
-&#x20;                         Backend EC2
+                           Backend EC2
 
-&#x20;                                 |
+                                 |
 
-&#x20;                                 v
+                                 v
 
-&#x20;                        Amazon RDS
+                             Amazon RDS
 
-&#x20;                           MySQL
+                               MySQL
 
-```
+
 
 
 
@@ -78,43 +78,43 @@ The primary focus of this project is the \*\*cloud infrastructure and architectu
 
 ```text
 
-&#x20;             Frontend EC2        Backend EC2
+             Frontend EC2        Backend EC2
 
-&#x20;                  |                   |
+                  |                   |
 
-&#x20;                  +---------+---------+
+                  +---------+---------+
 
-&#x20;                            |
+                            |
 
-&#x20;                            v
+                            v
 
-&#x20;                   CloudWatch Agent
+                   CloudWatch Agent
 
-&#x20;                            |
+                            |
 
-&#x20;                            v
+                            v
 
-&#x20;                    CloudWatch Logs
+                    CloudWatch Logs
 
-&#x20;                      ec2-all-logs
+                      ec2-all-logs
 
-&#x20;                            |
+                            |
 
-&#x20;                            v
+                            v
 
-&#x20;                   Lambda: Daily-log
+                   Lambda: Daily-log
 
-&#x20;                            |
+                            |
 
-&#x20;                            v
+                            v
 
-&#x20;                        Amazon S3
+                        Amazon S3
 
-&#x20;                            |
+                            |
 
-&#x20;                            v
+                            v
 
-&#x20;                      Amazon Athena
+                      Amazon Athena
 
 ```
 
@@ -268,33 +268,33 @@ The architecture follows a tier-based communication model:
 
 Internet
 
-&#x20;  |
+  |
 
-&#x20;  v
+  v
 
 Public ALB
 
-&#x20;  |
+  |
 
-&#x20;  v
+  v
 
 Frontend
 
-&#x20;  |
+  |
 
-&#x20;  v
+  v
 
 Internal ALB
 
-&#x20;  |
+  |
 
-&#x20;  v
+  v
 
 Backend
 
-&#x20;  |
+  |
 
-&#x20;  v
+  v
 
 RDS
 
@@ -358,27 +358,27 @@ Provides private communication between the frontend and backend tiers.
 
 Client
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Internet ALB
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Frontend EC2
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Internal ALB
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Backend EC2
 
@@ -428,15 +428,15 @@ Traffic flow:
 
 User
 
-&#x20;|
+|
 
-&#x20;v
+v
 
 CloudFront
 
-&#x20;|
+|
 
-&#x20;v
+v
 
 Application Entry Point
 
@@ -468,21 +468,21 @@ The DNS layer provides the entry point for the application architecture and inte
 
 Domain
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Route 53
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 CloudFront
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 AWS Application Infrastructure
 
@@ -634,27 +634,27 @@ Both frontend and backend server logs are collected into CloudWatch Logs.
 
 ```text
 
-Frontend EC2 â”€â”€â”€â”€â”€â”
+Frontend EC2 
 
-&#x20;                 |
+        |
 
-&#x20;                 v
+        v
 
-&#x20;         CloudWatch Agent
+ CloudWatch Agent
 
-&#x20;                 |
+        |
 
-&#x20;                 v
+        v
 
-&#x20;          CloudWatch Logs
+ CloudWatch Logs
 
-&#x20;           ec2-all-logs
+  ec2-all-logs
 
-&#x20;                 ^
+        ^
 
-&#x20;                 |
+        |
 
-Backend EC2 â”€â”€â”€â”€â”€â”€â”˜
+ Backend EC2 
 
 ```
 
@@ -672,7 +672,7 @@ This provides a centralized location for infrastructure and application logs.
 
 
 
-## AWS Lambda â€” Daily-log
+## AWS Lambda  Daily-log
 
 
 
@@ -716,15 +716,15 @@ The function creates a CloudWatch Logs export task for the previous complete UTC
 
 CloudWatch Logs
 
-&#x20;     |
+     |
 
-&#x20;     v
+     v
 
 Lambda
 
-&#x20;     |
+     |
 
-&#x20;     v
+     v
 
 Amazon S3
 
@@ -808,21 +808,21 @@ The intended workflow is:
 
 CloudWatch Logs
 
-&#x20;     |
+     |
 
-&#x20;     v
+     v
 
 S3 Archive
 
-&#x20;     |
+     |
 
-&#x20;     v
+     v
 
 Athena
 
-&#x20;     |
+     |
 
-&#x20;     v
+     v
 
 SQL-based Analysis
 
@@ -904,9 +904,9 @@ Configuration files:
 
 nginx/
 
-â”œâ”€â”€ nginx.conf
+ nginx.conf
 
-â””â”€â”€ google-store.conf
+ google-store.conf
 
 ```
 
@@ -974,61 +974,57 @@ This repository keeps infrastructure-related configuration alongside the applica
 
 cloudtask-aws-3tier-deployment/
 
-â”‚
+ backend/
 
-â”œâ”€â”€ backend/
+ frontend/
 
-â”œâ”€â”€ frontend/
+database/
 
-â”œâ”€â”€ database/
 
-â”‚
+ nginx/
 
-â”œâ”€â”€ nginx/
+ nginx.conf
 
-â”‚   â”œâ”€â”€ nginx.conf
+ google-store.conf
 
-â”‚   â””â”€â”€ google-store.conf
 
-â”‚
 
-â”œâ”€â”€ cloudwatch/
+ cloudwatch/
 
-â”‚   â””â”€â”€ amazon-cloudwatch-agent.json
+ amazon-cloudwatch-agent.json
 
-â”‚
 
-â”œâ”€â”€ lambda/
 
-â”‚   â””â”€â”€ lambda\_function.py
+ lambda/
 
-â”‚
+ lambda\_function.py
 
-â”œâ”€â”€ iam/
 
-â”‚   â””â”€â”€ lambda-daily-log-policy.json
 
-â”‚
+ iam/
 
-â”œâ”€â”€ athena/
+ lambda-daily-log-policy.json
 
-â”‚   â””â”€â”€ queries.sql
 
-â”‚
 
-â”œâ”€â”€ scripts/
+ athena/
 
-â”‚   â””â”€â”€ ecosystem.config.js
+ queries.sql
 
-â”‚
 
-â”œâ”€â”€ docs/
 
-â”‚   â””â”€â”€ screenshots/
+ scripts/
 
-â”‚
+ ecosystem.config.js
 
-â””â”€â”€ .gitignore
+
+
+ docs/
+
+ screenshots/
+
+
+ .gitignore
 
 ```
 
@@ -1046,51 +1042,50 @@ cloudtask-aws-3tier-deployment/
 
 1\. AWS VPC & Networking
 
-&#x20;         â†“
+
 
 2\. EC2 Infrastructure
 
-&#x20;         â†“
+
 
 3\. Security Groups / NACLs
 
-&#x20;         â†“
+
 
 4\. Load Balancers
 
-&#x20;         â†“
+
 
 5\. Frontend Infrastructure
 
-&#x20;         â†“
+
 
 6\. Internal Backend Routing
 
-&#x20;         â†“
+
 
 7\. RDS Integration
 
-&#x20;         â†“
+
 
 8\. Route 53
 
-&#x20;         â†“
 
 9\. CloudFront
 
-&#x20;         â†“
+
 
 10\. CloudWatch Logging
 
-&#x20;         â†“
+
 
 11\. Lambda Automation
 
-&#x20;         â†“
+
 
 12\. S3 Log Archive
 
-&#x20;         â†“
+
 
 13\. Athena Analysis
 
@@ -1112,31 +1107,31 @@ The infrastructure follows multiple layers of security controls:
 
 ```text
 
-&#x20;                   Internet
+                  Internet
 
-&#x20;                      |
+                      |
 
-&#x20;                CloudFront
+                   CloudFront
 
-&#x20;                      |
+                      |
 
-&#x20;               Public ALB
+                   Public ALB
 
-&#x20;                      |
+                      |
 
-&#x20;               Frontend Tier
+                  Frontend Tier
 
-&#x20;                      |
+                      |
 
-&#x20;              Internal ALB
+                  Internal ALB
 
-&#x20;                      |
+                      |
 
-&#x20;               Backend Tier
+                   Backend Tier
 
-&#x20;                      |
+                      |
 
-&#x20;                 RDS Tier
+                    RDS Tier
 
 ```
 
@@ -1444,7 +1439,7 @@ The focus is on:
 
 
 
-\*\*Architecture â†’ Networking â†’ Security â†’ Deployment â†’ Observability â†’ Automation â†’ Operations\*\*
+\*\*Architecture ’ Networking ’ Security ’ Deployment ’ Observability ’ Automation ’ Operations\*\*
 
 
 
